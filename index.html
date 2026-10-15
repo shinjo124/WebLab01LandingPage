@@ -3,70 +3,52 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#101b18">
-    <meta name="description" content="A gathering for ideas taking shape.">
-    <title>The Next Gathering</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="countdown.js" defer></script>
-    <script src="form.js" defer></script>
+    <title>Event</title>
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-    <header class="site-header">
-      <a class="wordmark" href="#top" aria-label="The Next Gathering home">NEXT<span> / </span>GATHERING</a>
+    <a href="#main-content">Skip to main content</a>
+
+    <header>
+      <a href="/" aria-label="Event home">Event</a>
       <nav aria-label="Main navigation">
-        <a href="#countdown">When</a>
-        <a href="#rsvp">Get updates</a>
+        <ul>
+          <li><a href="#event-details">Event details</a></li>
+          <li><a href="#rsvp">RSVP</a></li>
+        </ul>
       </nav>
     </header>
 
     <main id="main-content">
-      <section class="hero" id="top" aria-labelledby="page-title">
-        <p class="eyebrow">A PLACE FOR WHAT'S NEXT</p>
-        <h1 id="page-title">Good ideas<br><em>find their people.</em></h1>
-        <p class="intro">One day to step out of the usual, meet curious minds, and make room for a new perspective.</p>
-        <a class="text-link" href="#rsvp">Be the first to know <span aria-hidden="true">↗</span></a>
-        <p class="edition">A gathering for ideas taking shape <span>—</span> 2026</p>
+      <section aria-labelledby="page-title">
+        <h1 id="page-title">You're invited</h1>
+        <p>Join us for our upcoming event.</p>
       </section>
 
-      <section class="countdown-section" id="countdown" aria-labelledby="countdown-title">
-        <header>
-          <p class="eyebrow">MARK YOUR CALENDAR</p>
-          <h2 id="countdown-title">The moment is getting closer.</h2>
-        </header>
-        <p class="date-note">Your event date <time id="event-date" datetime="2026-12-31T23:59:59Z">31 December 2026</time> <span>·</span> UTC</p>
-        <ol class="countdown" id="countdown-clock" aria-label="Time remaining" role="timer">
-          <li><output id="days">—</output><span>days</span></li>
-          <li><output id="hours">—</output><span>hours</span></li>
-          <li><output id="minutes">—</output><span>minutes</span></li>
-          <li><output id="seconds">—</output><span>seconds</span></li>
-        </ol>
-        <p class="countdown-message" id="countdown-message"></p>
+      <section id="event-details" aria-labelledby="details-title">
+        <h2 id="details-title">Event details</h2>
+        <p>Date and time: <time datetime="2026-12-31T23:59:59Z">To be announced</time></p>
+        <p id="countdown" role="status" aria-live="polite">Countdown unavailable</p>
       </section>
 
-      <section class="rsvp-section" id="rsvp" aria-labelledby="rsvp-title">
-        <section class="rsvp-copy">
-          <p class="eyebrow">STAY IN THE LOOP</p>
-          <h2 id="rsvp-title">A note when it's ready.</h2>
-          <p>Leave your details and we'll let you know when the full programme is announced.</p>
-        </section>
-        <form id="rsvp-form" novalidate>
-          <label for="name">Your name</label>
-          <input id="name" name="name" autocomplete="name" required minlength="2" maxlength="80">
-          <label for="email">Email address</label>
-          <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby="email-hint">
-          <small id="email-hint">We’ll only use this for event updates.</small>
-          <button type="submit">Keep me posted <span aria-hidden="true">→</span></button>
-          <p class="form-message" id="form-message" role="status" aria-live="polite"></p>
+      <section id="rsvp" aria-labelledby="rsvp-title">
+        <h2 id="rsvp-title">RSVP</h2>
+        <form>
+          <p>
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" required>
+          </p>
+          <p>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </p>
+          <button type="submit">Send RSVP</button>
+          <p id="form-status" role="status" aria-live="polite"></p>
         </form>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <a class="wordmark" href="#top">NEXT<span> / </span>GATHERING</a>
-      <p>Made for the ideas we haven't met yet.</p>
+    <footer>
+      <p>We look forward to seeing you.</p>
     </footer>
   </body>
 </html>
-
-
