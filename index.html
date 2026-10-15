@@ -8,10 +8,10 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <a href="#main-content">Skip to main content</a>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <header>
-      <a href="/" aria-label="Event home">Event</a>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Event home">Event</a>
       <nav aria-label="Main navigation">
         <ul>
           <li><a href="#event-details">Event details</a></li>
@@ -20,20 +20,32 @@
       </nav>
     </header>
 
-    <main id="main-content">
-      <section aria-labelledby="page-title">
-        <h1 id="page-title">You're invited</h1>
-        <p>Join us for our upcoming event.</p>
+    <main class="site-main" id="main-content">
+      <section class="hero" id="top" aria-labelledby="page-title">
+        <p class="hero-note">An invitation</p>
+        <h1 id="page-title">You're invited<span>.</span></h1>
+        <p class="hero-copy">Join us for our upcoming event.</p>
+        <a class="hero-link" href="#rsvp">RSVP for the event <span aria-hidden="true">↘</span></a>
       </section>
 
-      <section id="event-details" aria-labelledby="details-title">
-        <h2 id="details-title">Event details</h2>
-        <p>Date and time: <time datetime="2026-12-31T23:59:59Z">To be announced</time></p>
-        <p id="countdown" role="status" aria-live="polite">Countdown unavailable</p>
+      <section class="event-details" id="event-details" aria-labelledby="details-title">
+        <header class="event-heading">
+          <p class="section-label">Save the date</p>
+          <h2 id="details-title">Event details</h2>
+          <p class="event-date"><time datetime="2026-12-31T23:59:59Z">31 December 2026</time><span> · UTC</span></p>
+        </header>
+        <figure class="countdown-block">
+          <p class="countdown-label">Time until we meet</p>
+          <p id="countdown" role="status" aria-live="polite">Countdown unavailable</p>
+        </figure>
       </section>
 
-      <section id="rsvp" aria-labelledby="rsvp-title">
-        <h2 id="rsvp-title">RSVP</h2>
+      <section class="rsvp" id="rsvp" aria-labelledby="rsvp-title">
+        <header class="rsvp-intro">
+          <p class="section-label">Keep in touch</p>
+          <h2 id="rsvp-title">RSVP</h2>
+          <p>Leave your details to let us know you're coming.</p>
+        </header>
         <form>
           <p>
             <label for="name">Name</label>
@@ -43,14 +55,17 @@
             <label for="email">Email</label>
             <input id="email" name="email" type="email" autocomplete="email" required>
           </p>
-          <button type="submit">Send RSVP</button>
+          <button type="submit">Send RSVP <span aria-hidden="true">↗</span></button>
           <p id="form-status" role="status" aria-live="polite"></p>
         </form>
       </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
+      <a class="wordmark" href="#top">Event</a>
       <p>We look forward to seeing you.</p>
     </footer>
   </body>
 </html>
+
+
