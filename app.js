@@ -50,18 +50,22 @@ if (form && formStatus) {
     event.preventDefault();
     if (state === "submitting") return;
 
+    for (const field of form.querySelectorAll("input, textarea")) {
+      field.value = field.value.trim();
+    }
+
     if (!form.reportValidity()) {
       setState("idle", "Please check the required fields.");
       return;
     }
+
+    setState("submitting", "Sending your RSVP…");
 
     const endpoint = form.dataset.endpoint;
     if (!endpoint) {
       setState("error", "RSVP could not be sent. The submission service is not configured.");
       return;
     }
-
-    setState("submitting", "Sending your RSVP…");
 
     try {
       const response = await fetch(endpoint, {
