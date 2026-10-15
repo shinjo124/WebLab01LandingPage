@@ -1,8 +1,12 @@
 const rsvpForm = document.querySelector('#rsvp-form');
 const formMessage = document.querySelector('#form-message');
 const submitButton = rsvpForm?.querySelector('button[type="submit"]');
+const nameInput = rsvpForm?.querySelector('#name');
+const emailInput = rsvpForm?.querySelector('#email');
+let formState = 'idle';
 
 function showFormState(state, message) {
+  formState = state;
   rsvpForm.dataset.state = state;
   formMessage.dataset.state = state;
   formMessage.textContent = message;
@@ -14,8 +18,16 @@ function showFormState(state, message) {
       : 'Keep me posted ';
 }
 
+rsvpForm?.addEventListener('input', () => {
+  if (formState === 'error') showFormState('idle', '');
+});
+
 rsvpForm?.addEventListener('submit', (event) => {
   event.preventDefault();
+  if (formState === 'submitting' || formState === 'success') return;
+
+  nameInput.value = nameInput.value.trim().replace(/\s+/g, ' ');
+  emailInput.value = emailInput.value.trim();
 
   if (!rsvpForm.reportValidity()) {
     showFormState('error', 'Check your name and email, then try again.');
