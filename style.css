@@ -1,0 +1,380 @@
+:root {
+  color-scheme: light;
+  --ink: #15231f;
+  --paper: #f2f0e7;
+  --surface: #e8e6da;
+  --accent: #d5482e;
+  --muted: #4d5a54;
+  --line: #b9bcb0;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: 'Segoe UI', Arial, sans-serif;
+  --measure: 68ch;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--sans);
+  line-height: 1.55;
+}
+
+::selection {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.25em;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 2;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.65rem 0.9rem;
+  color: var(--paper);
+  background: var(--ink);
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header,
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem clamp(1.25rem, 5vw, 5rem);
+}
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+}
+
+.wordmark {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.wordmark span {
+  color: var(--accent);
+}
+
+nav {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  font-size: 0.9rem;
+}
+
+nav a,
+.text-link {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+
+.hero {
+  position: relative;
+  display: flex;
+  min-height: min(760px, 83vh);
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5rem clamp(1.25rem, 12vw, 12rem) 7rem clamp(1.25rem, 10vw, 10rem);
+}
+
+.eyebrow {
+  margin: 0 0 1.1rem;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 11ch;
+  margin-bottom: 1.3rem;
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 9.5vw, 8.5rem);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.94;
+}
+
+h1 em {
+  color: var(--accent);
+  font-weight: 400;
+}
+
+.intro {
+  max-width: 46ch;
+  margin-bottom: 1.6rem;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+.text-link {
+  font-weight: 700;
+}
+
+.text-link span {
+  color: var(--accent);
+}
+
+.edition {
+  position: absolute;
+  right: clamp(1.25rem, 5vw, 5rem);
+  bottom: 1.25rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.edition span {
+  color: var(--accent);
+}
+
+.countdown-section {
+  padding: clamp(3.5rem, 8vw, 7rem) clamp(1.25rem, 10vw, 10rem);
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.countdown-section header {
+  max-width: var(--measure);
+}
+
+.countdown-section .eyebrow {
+  color: #f08a72;
+}
+
+h2 {
+  margin-bottom: 1.2rem;
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.date-note {
+  margin: 2.25rem 0 0.75rem;
+  color: #d4d8d0;
+  font-size: 0.9rem;
+}
+
+.date-note time {
+  color: var(--paper);
+  font-weight: 700;
+}
+
+.date-note span {
+  padding-inline: 0.35rem;
+  color: #f08a72;
+}
+
+.countdown {
+  display: grid;
+  max-width: 850px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.75rem, 3vw, 2.5rem);
+  margin: 0;
+  padding: 1rem 0 0;
+  list-style: none;
+}
+
+.countdown li {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  border-top: 1px solid #53605a;
+  padding-top: 0.8rem;
+}
+
+.countdown output {
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  line-height: 1.1;
+}
+
+.countdown li span {
+  color: #d4d8d0;
+  font-size: 0.8rem;
+}
+
+.countdown-message {
+  min-height: 1.5em;
+  margin: 1.5rem 0 0;
+  color: #f08a72;
+}
+
+.rsvp-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  padding: clamp(4rem, 9vw, 8rem) clamp(1.25rem, 10vw, 10rem);
+}
+
+.rsvp-copy p:last-child {
+  max-width: 42ch;
+  color: var(--muted);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+label {
+  margin: 0 0 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  min-height: 3rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 0.65rem 0.75rem;
+  color: var(--ink);
+  background: #fffef9;
+  font: inherit;
+}
+
+form small {
+  margin-top: -0.85rem;
+  margin-bottom: 1.25rem;
+  color: var(--muted);
+}
+
+button {
+  display: flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: space-between;
+  border: 0;
+  padding: 0.8rem 1rem;
+  color: var(--paper);
+  background: var(--accent);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: #b93620;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.form-message {
+  min-height: 1.55em;
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+}
+
+.form-message[data-state="error"] {
+  color: #a42a1a;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.site-footer p {
+  margin: 0;
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .site-header,
+  .site-footer {
+    padding-inline: 1.1rem;
+  }
+
+  .hero {
+    min-height: 620px;
+    padding: 5rem 1.25rem 6rem;
+  }
+
+  .edition {
+    right: 1.25rem;
+  }
+
+  .countdown-section,
+  .rsvp-section {
+    padding-inline: 1.25rem;
+  }
+
+  .countdown {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1.5rem;
+  }
+
+  .rsvp-section {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .wordmark {
+    font-size: 0.68rem;
+  }
+
+  nav {
+    gap: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  h1 {
+    font-size: clamp(3.1rem, 16vw, 3.8rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
